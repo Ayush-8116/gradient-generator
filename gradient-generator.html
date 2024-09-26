@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            background-image:linear-gradient(to top right,rgba(5, 80, 243, 0.879),rgba(9, 170, 244, 0.865) ,rgba(8, 231, 130, 0.811), #acff00 );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+         .btn{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+         }
+         button {
+            width: 100px;
+            height: 40px;
+            border-radius: 60px; 
+            border: none;
+            outline: none;
+            background-color: white;
+            cursor: pointer;
+            transition: box-shadow 0.2s ease; 
+        }
+        button:hover {
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); 
+        }
+        #mybtn1{
+         background-color:rgba(5, 80, 243, 0.879) ;
+        }
+        #mybtn2{
+            background-color:#acff00;
+        } 
+        h2{
+            margin-top: 20px;
+        }
+        #box{
+            margin-top: 20px;
+            width:300px;
+            height: 46px;
+            border-left: 2px solid whitesmoke;
+            padding:8px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="btn">
+            <button id="mybtn1">#0550f3</button>
+            <button id="mybtn2">#acff00</button>
+
+        </div>
+        <h2>copy your code here</h2>
+       
+    </section>
+    <div id="box">
+        background-image:linear-gradient(to top right,rgba(5, 80, 243, 0.879), #acff00 );
+    </div>
+    <script>
+        let btn1=document.getElementById('mybtn1');
+        let btn2=document.getElementById('mybtn2');
+        let  divbox=document.getElementById('box');
+        let rgb1="#0550f3";
+        let rgb2="#acff00";
+        const hexvalus=()=>{
+        let hexvalue="0123456789ABCDEF";
+        let colors="#"
+       
+        for(let i=0;i<6;i++){
+            colors=colors + hexvalue[Math.floor(Math.random()*16)];
+           
+        }
+        return colors;
+        }
+        const handlebutton1=()=>{
+          rgb1=hexvalus();
+         console.log(rgb1);
+         document.body.style.backgroundImage=`linear-gradient(to right,${rgb1}, ${rgb2})`
+          divbox.innerHTML=`background-image:linear-gradient(to top right,${rgb1},  ${rgb2})`
+          btn1.innerHTML=`${rgb1}`;
+         
+        }
+        const handlebutton2=()=>{
+            rgb2=hexvalus();
+         console.log(rgb2);
+          document.body.style.backgroundImage=`linear-gradient(to right,${rgb1}, ${rgb2})`;
+          divbox.innerHTML=`background-image: linear-gradient(to top right, ${rgb1} , ${rgb2})`;
+          btn2.innerHTML=`${rgb2}`
+        }
+
+        btn1.addEventListener('click',handlebutton1);
+        btn2.addEventListener('click',handlebutton2);
+    </script>
+</body>
+</html>
